@@ -164,6 +164,7 @@ async def download_video(client, callback : CallbackQuery):
 
     for file in os.listdir('.'):
         if file.endswith(".mp4"):
+            bot.send_video(chat_id=user_id, video=open('output.mp4', 'rb'), supports_streaming=True)
             await callback.message.reply_video(f"{file}", caption="**Here Is your Requested Video**\n@Movies_Unloaded",
                                 reply_markup=InlineKeyboardMarkup([[btn1, btn2]]))
             os.remove(f"{file}")
